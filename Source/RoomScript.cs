@@ -22,11 +22,10 @@ public class RoomScript : Node2D {
             Dictionary room_data = data[room_type] as Dictionary;
 
             room_name.Text = (string) room_data["name"];
-            // slot_count = (int) room_data["slots"];
+            slot_count = (int)(float) room_data["slots"];
         } else {
             GD.PrintErr("room type not found!");
         }
-        
     }
 
     public override void _Ready() {
