@@ -39,8 +39,6 @@ public class RoomScript : Node2D {
     }
 
     public override void _Draw() {
-        // base._Draw();
-
         if (dependent_room != null) {
             Vector2 path = dependent_room.Position - Position;
             Vector2 path_normal = path.Normalized();
