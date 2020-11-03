@@ -7,7 +7,7 @@ export_presets.cfg
 *.translation
 
 # Mono-specific ignores
-.mono/*
+.mono/
 data_*/
 
 # VSCode-specific ignores
