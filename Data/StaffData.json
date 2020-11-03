@@ -1,7 +1,12 @@
 [
     {
-        "name": "dudes name",
-        "description": "this dude has limbs, just like a real person",
-        "skills": ["generic"]
-    }
+        "name": "worker",
+        "display-name": "Worker",
+        "description": "This staff member can do generic work like hauling, cleaning, and operating machinery, with other similar things",
+        "skills": ["work", "combat"],
+        "bonusSkills": ["lab-work", "demonic"],
+        "base_health": 30,
+        "base_attack": 3,
+        "base_defense": 2
+    },
 ]

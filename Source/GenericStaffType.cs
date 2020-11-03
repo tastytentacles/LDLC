@@ -16,7 +16,7 @@ public class GenericStaffType
 	public GenericSkill[] skills;
 
 	// An array of GenericSkills objects from which one-or more-skills may be added to the skills object of the instance
-	public GenericSkill[] skills;
+	public GenericSkill[] bonusSkills;
 
 	// Values used during combat. This value may be increased, during calculation, with skills
 	public int base_health;

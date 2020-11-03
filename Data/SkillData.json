@@ -1,0 +1,32 @@
+[
+    {
+        "name": "work",
+        "display-name": "Work",
+        "description": "This staff member can do generic work like hauling, cleaning, and operating machinery, with other similar things",
+    },
+    {
+        "name": "crafting",
+        "display-name": "Crating",
+        "description": "This staff member can do crafting and construction of objects, buildings and machiner.",
+    },
+    {
+    	"name": "research",
+    	"display-name": "Research",
+    	"description": "This staff member can do research and scientific work."
+    },
+    {
+    	"name": "combat",
+    	"display-name": "Combat",
+    	"description": "This staff member can combat and defened."
+    }
+    {
+    	"name": "lab-work",
+    	"display-name": "Lab Work",
+    	"description": "This staff member can do crafting requiring complex laboratory & tools like synthesis of medicines or of other organic & inorganic composts."
+    },
+    {
+        "name": "demonic",
+        "display-name": "Demonic",
+        "description": "This staff member can do work that heavily requires or for which is exposed to demonic or hell resources."
+    }    
+]
