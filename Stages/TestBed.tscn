@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Source/OverMindScript.cs" type="Script" id=1]
 [ext_resource path="res://Parts/RoomBasic.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Source/CardScript.cs" type="Script" id=3]
+[ext_resource path="res://Textures/Card.png" type="Texture" id=4]
 
 [node name="root" type="Node2D"]
 script = ExtResource( 1 )
@@ -32,3 +34,16 @@ dependent_room_path = NodePath("../Room3")
 [node name="Room5" parent="." instance=ExtResource( 2 )]
 position = Vector2( 886.78, 220.909 )
 dependent_room_path = NodePath("../Room3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 393.095
+margin_top = 411.994
+margin_right = 433.095
+margin_bottom = 451.994
+rect_scale = Vector2( 0.25, 0.25 )
+mouse_filter = 0
+texture = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
