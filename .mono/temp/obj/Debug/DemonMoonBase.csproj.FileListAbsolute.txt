@@ -1,0 +1,8 @@
+/home/tasty/Desktop/GameCycle99/DemonMoonBase/.mono/temp/bin/Debug/DemonMoonBase.dll
+/home/tasty/Desktop/GameCycle99/DemonMoonBase/.mono/temp/bin/Debug/DemonMoonBase.pdb
+/home/tasty/Desktop/GameCycle99/DemonMoonBase/.mono/temp/obj/Debug/DemonMoonBase.csprojAssemblyReference.cache
+/home/tasty/Desktop/GameCycle99/DemonMoonBase/.mono/temp/obj/Debug/DemonMoonBase.AssemblyInfoInputs.cache
+/home/tasty/Desktop/GameCycle99/DemonMoonBase/.mono/temp/obj/Debug/DemonMoonBase.AssemblyInfo.cs
+/home/tasty/Desktop/GameCycle99/DemonMoonBase/.mono/temp/obj/Debug/DemonMoonBase.csproj.CoreCompileInputs.cache
+/home/tasty/Desktop/GameCycle99/DemonMoonBase/.mono/temp/obj/Debug/DemonMoonBase.dll
+/home/tasty/Desktop/GameCycle99/DemonMoonBase/.mono/temp/obj/Debug/DemonMoonBase.pdb
