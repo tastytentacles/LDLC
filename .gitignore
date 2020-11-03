@@ -12,3 +12,6 @@ data_*/
 
 # VSCode-specific ignores
 .vscode
+
+# export specific
+Export/
