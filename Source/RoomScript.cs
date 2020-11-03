@@ -4,10 +4,12 @@ using System;
 
 public class RoomScript : Node2D {
     [Export] public string room_type = "basic";
+    [Export] public bool room_abandoned = false;
     [Export] public NodePath dependent_room_path;
     
 
     public Label room_name;
+    public ColorRect debug_indicator;
     public RoomScript dependent_room;
     public ImmediateGeometry line;
 
@@ -35,10 +37,21 @@ public class RoomScript : Node2D {
     public override void _Ready() {
         room_name = GetNode<Label>("Graphics/room_name");
 
+        debug_indicator = GetNode<ColorRect>("Graphics/debug_square");
+
         LoadRoomData();
 
+        // populate dependent room
         if (dependent_room_path != null) {
             dependent_room = GetNode<RoomScript>(dependent_room_path);
+
+            if (dependent_room.room_abandoned) {
+                room_abandoned = true;
+            }
+        }
+
+        if (room_abandoned) {
+            debug_indicator.Color = Colors.DimGray;
         }
     }
 
@@ -49,7 +62,11 @@ public class RoomScript : Node2D {
             Vector2 path_normal = path.Normalized();
             float path_distance = path.Length();
 
-            DrawLine(path_normal * (path_distance / 5), path * .80f, new Color(1, 0, 0), 1);
+            DrawLine(
+                path_normal * (path_distance / 5),
+                path * .80f,
+                Colors.Red,
+                1);
         }
     }
 }
