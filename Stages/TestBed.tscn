@@ -35,12 +35,44 @@ dependent_room_path = NodePath("../Room3")
 position = Vector2( 886.78, 220.909 )
 dependent_room_path = NodePath("../Room3")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-margin_left = 393.095
-margin_top = 411.994
-margin_right = 433.095
-margin_bottom = 451.994
+[node name="card_space" type="Node2D" parent="."]
+z_index = 1
+
+[node name="card" type="TextureRect" parent="card_space"]
+margin_left = 373.671
+margin_top = 78.254
+margin_right = 973.671
+margin_bottom = 878.254
 rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 300, 400 )
+mouse_filter = 0
+texture = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card2" type="TextureRect" parent="card_space"]
+margin_left = 151.925
+margin_top = 78.254
+margin_right = 751.925
+margin_bottom = 878.254
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 300, 400 )
+mouse_filter = 0
+texture = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="card3" type="TextureRect" parent="card_space"]
+margin_left = 257.758
+margin_top = 132.431
+margin_right = 857.758
+margin_bottom = 932.431
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 300, 400 )
 mouse_filter = 0
 texture = ExtResource( 4 )
 script = ExtResource( 3 )
