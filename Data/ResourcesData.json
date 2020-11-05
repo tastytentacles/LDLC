@@ -1,0 +1,42 @@
+[
+	{
+		"name": "water",
+		"name": "Water",
+		"description": "Got water?"
+	},
+	{
+		"name": "oxygen",
+		"name": "Oxygen",
+		"description": "Delicious oxygen"
+	},
+	{
+		"name": "energy",
+		"name": "Electricity",
+		"description": "Danger! Danger! High Voltage!"
+	},
+	{
+		"name": "bio-matter",
+		"name": "Biological Matter",
+		"description": "Various biological matter - plant, and.. stuff like that."
+	},
+	{
+		"name": "food",
+		"name": "Food",
+		"description": "Raw food & ingredients. Workers don't like eat them unprepared."
+	},
+	{
+		"name": "meal",
+		"name": "Prepared Meal",
+		"description": "The best - and only - food on this side of mars!"
+	},
+	{
+		"name": "argent",
+		"name": "Argent",
+		"description": "With all this hell, we'd need mor Silver than Argent!"
+	},
+	{
+		"name": "raw-argent",
+		"name": "Raw Argent",
+		"description": "Raw Argent, straight from mother hell!"
+	}
+]
