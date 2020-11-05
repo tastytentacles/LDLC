@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Source/RoomScript.cs" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 22.6134, 21.3597 )
 
 [node name="Room" type="Node2D"]
 script = ExtResource( 1 )
@@ -13,6 +16,7 @@ margin_left = -20.1298
 margin_top = -19.0703
 margin_right = 19.8702
 margin_bottom = 20.9297
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -25,3 +29,8 @@ margin_bottom = -23.0812
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )

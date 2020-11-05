@@ -1,81 +1,41 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Source/OverMindScript.cs" type="Script" id=1]
 [ext_resource path="res://Parts/RoomBasic.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Source/CardScript.cs" type="Script" id=3]
-[ext_resource path="res://Textures/Card.png" type="Texture" id=4]
+[ext_resource path="res://Parts/CardBasic.tscn" type="PackedScene" id=3]
 
 [node name="root" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 640.04, 360.337 )
+current = true
 
 [node name="PlayerHand" type="Node2D" parent="Camera2D"]
-position = Vector2( -640.04, -360.337 )
+position = Vector2( 0, 329.219 )
 
 [node name="Room" parent="." instance=ExtResource( 2 )]
-position = Vector2( 323.287, 288.868 )
+position = Vector2( -312.815, -119.164 )
 dependent_room_path = NodePath("../Room2")
 
 [node name="Room2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 496.96, 461.597 )
+position = Vector2( -139.142, 53.5654 )
 room_type = "docks"
 
 [node name="Room3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 662.138, 293.588 )
+position = Vector2( 26.0363, -114.444 )
 room_abandoned = true
 dependent_room_path = NodePath("../Room2")
 
 [node name="Room4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 858.464, 463.485 )
+position = Vector2( 222.362, 55.4534 )
 dependent_room_path = NodePath("../Room3")
 
 [node name="Room5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 886.78, 220.909 )
+position = Vector2( 250.678, -187.123 )
 dependent_room_path = NodePath("../Room3")
 
 [node name="card_space" type="Node2D" parent="."]
 z_index = 1
 
-[node name="card" type="TextureRect" parent="card_space"]
-margin_left = 373.671
-margin_top = 78.254
-margin_right = 973.671
-margin_bottom = 878.254
-rect_scale = Vector2( 0.25, 0.25 )
-rect_pivot_offset = Vector2( 300, 400 )
-mouse_filter = 0
-texture = ExtResource( 4 )
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="card2" type="TextureRect" parent="card_space"]
-margin_left = 151.925
-margin_top = 78.254
-margin_right = 751.925
-margin_bottom = 878.254
-rect_scale = Vector2( 0.25, 0.25 )
-rect_pivot_offset = Vector2( 300, 400 )
-mouse_filter = 0
-texture = ExtResource( 4 )
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="card3" type="TextureRect" parent="card_space"]
-margin_left = 257.758
-margin_top = 132.431
-margin_right = 857.758
-margin_bottom = 932.431
-rect_scale = Vector2( 0.25, 0.25 )
-rect_pivot_offset = Vector2( 300, 400 )
-mouse_filter = 0
-texture = ExtResource( 4 )
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="card" parent="card_space" instance=ExtResource( 3 )]
+position = Vector2( 40.9168, 201.601 )
