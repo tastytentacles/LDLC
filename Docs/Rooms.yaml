@@ -1,0 +1,85 @@
+enviromentals:
+	- passive oxygen extractor: 
+    production: oxygen
+    upgrade_to:
+  		- oxygen garden:
+        production: oxygen
+        required: water
+  		- MOXIE:
+        production: oxygen
+        required: energy
+
+	- water-well:
+      produce: water
+      upgrade_to:
+		    - water-filter:
+          produce: water, bio-matter
+          require: energy
+
+	- waste-composter:
+    producte: bio-matter
+    required: waste
+    upgrade_to:
+  		- waste-converter: productes water or fuel
+        produce: water | bio-fuel
+        required: energy
+
+	- kitchen:
+    produce: meal
+    required: water, bio-matter, food
+
+generators:
+	- nuclear reactor:
+    produce: energy
+    required: nuclear fuel | nuclear waste
+
+	- biological reactor:
+    produce: energy
+    required: bio-matter | bio-fuel
+
+	- argent transformer:
+    produce: energy
+    required: argent
+
+converters:
+	- workshop:
+	- weapon workshop:
+	- laboratory:
+    upgrade_to:
+  		- advanced laboratory:
+  		- artifacts laboratory:
+
+	- toxic refinery:
+    produce: nuclear fuel
+    required: uranium
+
+	- argent resonator:
+    produce: argent
+    required: raw argent
+
+extraction:
+	- automatic mine:
+    required: energy ( at least one non-argent transformer must be preset )
+		- argent-powered mine
+    required: energy ( at least one argent transformer must be preset )
+
+	- argent extractor:
+    produce: raw argent
+    required: energy ( any )
+
+	- hydroponic farm:
+    produce: bio-matter | food
+    required: water
+    upgrade_to:
+      - intesive hydroponic:
+        produce: bio-matter | food
+        required: water, energy
+
+defense:
+	- guard station:
+
+storage:
+	- warehouse:
+	- armory:
+	- pantry:
+	- acqueduct:
