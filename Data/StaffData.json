@@ -3,10 +3,109 @@
         "name": "worker",
         "display-name": "Worker",
         "description": "This staff member can do generic work like hauling, cleaning, and operating machinery, with other similar things",
-        "skills": ["work", "combat"],
+        "skills": ["work", "lab-work"],
         "bonusSkills": ["lab-work", "demonic"],
-        "base_health": 30,
+        "promotions": ["crafter"],
+        "base_health": 20,
         "base_attack": 3,
         "base_defense": 2
     },
+        {
+            "name": "crafter",
+            "display-name": "Crafter",
+            "skills": ["work", "crafting"],
+            "description": "This staff member can craft objects and structures. Not suited for combat",
+            "bonusSkills": ["demonic", "research"],
+            "promotions": [],
+            "base_health": 15,
+            "base_attack": 0,
+            "base_defense": 1
+        },
+    {
+        "name": "researcher",
+        "display-name": "Researcher",
+        "skills": ["work", "lab-work"],
+        "description": "This staff member can do research and laboratory work. Not suited for combat.",
+        "bonusSkills": ["crafting", "demonic"],
+        "promotions": ["head-researcher", "demonic-scholar"],
+        "base_health": 10,
+        "base_attack": 0,
+        "base_defense": 0
+    },
+        {
+            "name": "head-researcher",
+            "display-name": "Head Researcher",
+            "skills": ["work", "lab-work"],
+            "description": "This staff member can do advanced research and laboratory work. Not suited for combat.",
+            "bonusSkills": ["crafting", "demonic"],
+            "base_health": 10,
+            "base_attack": 0,
+            "base_defense": 0
+        },
+        {
+            "name": "demonic-scholar",
+            "display-name": "Demonic Scholar",
+            "skills": ["work", "demonic"],
+            "description": "This staff member can do advanced research regarding demonic and hell stuff. Not suited for combat.",
+            "bonusSkills": ["crafting", "lab-work"],
+            "base_health": 10,
+            "base_attack": 0,
+            "base_defense": 0
+        },
+    {
+        "name": "guard-marine",
+        "display-name": "Guard Marine",
+        "skills": ["combat"],
+        "description": "This is the less powerfull grade of marine, but is still incredibly important in numbers.",
+        "bonusSkills": ["demonic"],
+        "promotions": ["demon-marine"],
+        "base_health": 30,
+        "base_attack": 8,
+        "base_defense": 5
+    },
+        {
+            "name": "rifleman-marine",
+            "display-name": "Rfileman Marine",
+            "skills": ["combat"],
+            "description": "This marine member, with his powerfull plasma rifle, is way powerfull than a normal marine, but with way less defenses.",
+            "bonusSkills": ["demonic"],
+            "promotions": ["chaingun-marine", "demon-marine"],
+            "base_health": 25,
+            "base_attack": 20,
+            "base_defense": 1
+        },
+                {
+                    "name": "chaingun-marine",
+                    "display-name": "Chaingun Marine",
+                    "skills": ["combat"],
+                    "description": "This marine is equiped with a strong but expensive chaingun, that gives him a big step on the combat field.",
+                    "bonusSkills": ["demonic"],
+                    "promotions": ["rocket-marine", "demon-marine"],
+                    "base_health": 50,
+                    "base_attack": 40,
+                    "base_defense": 8
+                },
+                    {
+                        "name": "rocket-marine",
+                        "display-name": "Rocket-Launcher Marine",
+                        "skills": ["combat"],
+                        "description": "This marine is equiped with an incredibly strong rocket launcher, which gives him an incredible attack, but also an explosive bomb in case the rocket-launcher is destroyed (which is really easy).",
+                        "bonusSkills": ["demonic"],
+                        "promotions": ["demon-marine"],
+                        "base_health": 35,
+                        "base_attack": 40,
+                        "base_defense": 2
+                    },
+        {
+            "name": "demon-marine",
+            "display-name": "Demonic Marine",
+            "skills": ["combat"],
+            "description": "This marine, enhanced with demonic powers, is way powerful and cheaper than a rifleman marine, but can only be deployed during demon attacks or in hell.",
+            "bonusSkills": [],
+            "promotions": [],
+            "base_health": 45,
+            "base_attack": 16,
+            "base_defense": 10
+        },
+
 ]
