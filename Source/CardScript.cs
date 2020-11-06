@@ -6,13 +6,14 @@ using System.Collections.Generic;
 public class CardScript : Node2D {
     public bool drag_flag;
     public bool hover_flag;
-    public Vector2 offset;
+    public bool place_flag;
 
     [Export] public Vector2 base_scale = new Vector2(.25f, .25f);
     [Export] public Vector2 hover_scale = new Vector2(.3f, .3f);
     [Export] public Vector2 hold_scale = new Vector2(.1f, .1f);
     [Export] public Vector2 place_scale = new Vector2(.15f, .15f);
 
+    private Vector2 offset;
     private List<Area2D> over_list;
     private Vector2 root_point;
     private RoomScript over_room;
@@ -22,21 +23,16 @@ public class CardScript : Node2D {
 
     public void mouse_in() {
         hover_flag = true;
-        Scale = hover_scale;
     }
 
     public void mouse_out() {
         hover_flag = false;
-        Scale = base_scale;
-        GD.Print("mosue out");
     }
 
 
     public void drop_in(Area2D a) {
         if (a.GetParent() is RoomScript room && !tween.IsActive()) {
             GD.Print("over room " + room.Name);
-            Scale = place_scale;
-            // root_point = room.Position;
 
             over_room = room;
         }
@@ -44,7 +40,6 @@ public class CardScript : Node2D {
 
     public void drop_out(Area2D a) {
         if (a.GetParent() == over_room) {
-            Scale = hold_scale;
             over_room = null;
         }
     }
@@ -53,7 +48,7 @@ public class CardScript : Node2D {
 
     public override void _Ready() {
         AddChild(tween);
-
+        
         GetNode<Area2D>("hitbox").Connect("mouse_entered", this, nameof(mouse_in));
         GetNode<Area2D>("hitbox").Connect("mouse_exited", this, nameof(mouse_out));
 
@@ -63,12 +58,11 @@ public class CardScript : Node2D {
 
     public override void _Input(InputEvent e) {
         if (e is InputEventMouse em) {
-            if (em.IsPressed()) {
+            if (em.IsAction("left_click") & (hover_flag | drag_flag)) {
                 if (over_room != null) {
-                    Scale = place_scale;
+                    place_flag = true;
                     root_point = over_room.Position;
                 } else {
-                    Scale = hold_scale;
                     offset = Position - em.Position;
                 }
 
@@ -78,14 +72,24 @@ public class CardScript : Node2D {
     }
 
     public override void _Process(float delta) {
+        Scale = base_scale;
+        
+        if (place_flag) {
+            Scale = place_scale;
+        }
+
+        if (hover_flag) {
+            Scale = hover_scale;
+        }
+
         if (drag_flag) {
             tween.StopAll();
-
             Position = GetViewport().GetMousePosition() + offset;
+
+            Scale = hold_scale;
         } else {
             tween.InterpolateProperty(this, "position", Position, root_point, .1f);
             tween.Start();
-            // Position = root_point;
         }
     }
 }
