@@ -1,0 +1,90 @@
+[
+	{
+		"name": "handgun",
+		"display-name": "Handgun",
+		"description": "It's a Handgun! Isn't it great?",
+		"type": "weapon",
+		"subtype": "light",
+		"attack": 10
+	},
+		{
+			"name": "plasma-gun",
+			"display-name": "Plasma Gun",
+			"description": "A gun that shoots pulses of blue-hot plasma at high speed",
+			"type": "weapon",
+			"subtype": "light",
+			"attack": 55
+		},
+	{
+		"name": "plasma-rifle",
+		"display-name": "Plasma Rifle",
+		"description": "A plasma-powered rifle.",
+		"type": "weapon",
+		"subtype": "rifle",
+		"attack": 15
+	},
+		{
+			"name": "heavy-rifle",
+			"display-name": "Heavy Plasma Rifle",
+			"description": "A heavier version of the plasma-rifle.",
+			"type": "weapon",
+			"subtype": "rifle",
+			"attack": 35
+		},
+			{
+				"name": "hellshot",
+				"display-name": "Hellshot",
+				"description": "An advanced semi-automatic Hell Energy weapon.",
+				"type": "weapon",
+				"subtype": ["rifle", "demonic"],
+				"attack": 35
+			},
+	{
+		"name": "chaingun",
+		"display-name": "Heavy Chaingun",
+		"description": "A standard UAC Heavy Chaingun.",
+		"type": "weapon",
+		"subtype": "heavy",
+		"attack": 65
+	},
+		{
+			"name": "plasma-chaingun",
+			"display-name": "Plasma Chaingun",
+			"description": "An Heavy Chaingun modified to shoot heavily-charged plasma shots.",
+			"type": "weapon",
+			"subtype": ["heavy"],
+			"attack": 85
+		},
+			{
+				"name": "bfg-9000",
+				"display-name": "BFG 9000",
+				"description": "An incredible strong, plasma-powered weapon, the most powerful weapon currently available..",
+				"type": "weapon",
+				"subtype": ["heavy"],
+				"attack": 200
+			},
+			{
+				"name": "unmaykr",
+				"display-name": "Unmaykr",
+				"description": "Inspired by Sentinel weapon technology, this celestial firearm was created in Urdak by the ingenious invention of the Maykrs themselves.",
+				"type": "weapon",
+				"subtype": ["heavy", "demonic"],
+				"attack": 160
+			},
+	{
+		"name": "rocket-launcher",
+		"display-name": "Rocket Launcher",
+		"description": "A standard UAC Rocket Launcher.",
+		"type": "weapon",
+		"subtype": "rocket",
+		"attack": 105
+	},
+		{
+			"name": "nuke-launcher",
+			"display-name": "The I-see-BM",
+			"description": "A version of the Rocket Launcher that launches small hydrogen-bomb based projectiles.",
+			"type": "weapon",
+			"subtype": "rocket",
+			"attack": 170
+		}
+]
