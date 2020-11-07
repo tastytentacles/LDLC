@@ -22,4 +22,7 @@ public class GenericStaffType
 	public int base_health;
 	public int base_attack;
 	public int base_defense;
+
+	// An array containg the cards equipped to the staff card
+	public List<GenericCard> equipped;
 }
