@@ -2,6 +2,8 @@ using Godot;
 using Godot.Collections;
 using System;
 
+using System.Collections.Generic;
+
 public class RoomScript : Node2D {
     [Export] public string room_type = "basic";
     [Export] public bool room_abandoned = false;
@@ -14,6 +16,10 @@ public class RoomScript : Node2D {
     public ImmediateGeometry line;
 
     public int slot_count;
+    public int staff_slot_count;
+    public List<CardScript> staff_cards = new List<CardScript>();
+    public Vector2 staff_slot_root = Vector2.Down * 48f;
+    public Vector2 staff_slot_offset = Vector2.Right * 32f;
 
     public void LoadRoomData() {
         // open data file
@@ -32,6 +38,21 @@ public class RoomScript : Node2D {
         } else {
             GD.PrintErr("room type not found!");
         }
+    }
+
+    public (bool, Vector2) request_staff_slot(CardScript cs) {
+        if (staff_slot_count + 1 > slot_count) {
+            return (false, Vector2.Zero);
+        }
+
+        ++staff_slot_count;
+        staff_cards.Add(cs);
+        return (true, staff_slot_root + staff_slot_offset * (staff_slot_count - 1));
+    }
+
+    public void vacate_staff_slot(CardScript cs) {
+        --staff_slot_count;
+        staff_cards.Remove(cs);
     }
 
     public override void _Ready() {
@@ -67,6 +88,12 @@ public class RoomScript : Node2D {
                 path * .80f,
                 Colors.Red,
                 1);
+        }
+
+        for (int n = 0; n < slot_count; ++n) {
+            DrawCircle(staff_slot_root + staff_slot_offset * n,
+                4f,
+                Colors.Green);
         }
     }
 }

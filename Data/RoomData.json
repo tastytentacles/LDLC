@@ -1,11 +1,11 @@
 {
     "basic": {
         "name": "basic room",
-        "slots": 1
+        "slots": 2
     },
 
     "docks": {
         "name": "space dock",
-        "slots": 1
+        "slots": 4
     }
 }

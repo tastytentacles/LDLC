@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Source/OverMindScript.cs" type="Script" id=1]
 [ext_resource path="res://Parts/RoomBasic.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Parts/CardBasic.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Source/PlayerHandScript.cs" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 300.085, 72.4865 )
 
 [node name="root" type="Node2D"]
 script = ExtResource( 1 )
@@ -12,6 +16,15 @@ current = true
 
 [node name="PlayerHand" type="Node2D" parent="Camera2D"]
 position = Vector2( 0, 329.219 )
+script = ExtResource( 4 )
+card_space_path = NodePath("../../card_space")
+card_basic = ExtResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="Camera2D/PlayerHand"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/PlayerHand/Area2D"]
+position = Vector2( 0, -46.7194 )
+shape = SubResource( 1 )
 
 [node name="Room" parent="." instance=ExtResource( 2 )]
 position = Vector2( -312.815, -119.164 )
@@ -36,6 +49,3 @@ dependent_room_path = NodePath("../Room3")
 
 [node name="card_space" type="Node2D" parent="."]
 z_index = 1
-
-[node name="card" parent="card_space" instance=ExtResource( 3 )]
-position = Vector2( 40.9168, 201.601 )

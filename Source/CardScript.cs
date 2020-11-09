@@ -11,12 +11,16 @@ public class CardScript : Node2D {
     [Export] public Vector2 base_scale = new Vector2(.25f, .25f);
     [Export] public Vector2 hover_scale = new Vector2(.3f, .3f);
     [Export] public Vector2 hold_scale = new Vector2(.1f, .1f);
-    [Export] public Vector2 place_scale = new Vector2(.15f, .15f);
+    [Export] public Vector2 place_scale = new Vector2(.05f, .05f);
 
     private Vector2 offset;
     private List<Area2D> over_list;
     private Vector2 root_point;
     private RoomScript over_room;
+    private RoomScript last_room;
+
+    private PlayerHandScript over_hand;
+    private PlayerHandScript last_hand;
 
     private Tween tween = new Tween();
 
@@ -32,7 +36,7 @@ public class CardScript : Node2D {
 
     public void drop_in(Area2D a) {
         if (a.GetParent() is RoomScript room && !tween.IsActive()) {
-            GD.Print("over room " + room.Name);
+            // GD.Print("over room " + room.Name);
 
             over_room = room;
         }
@@ -46,6 +50,53 @@ public class CardScript : Node2D {
 
 
 
+    public void add_to(Node2D target) {
+        if (target is RoomScript target_room) {
+            (bool answer, Vector2 at) req = target_room.request_staff_slot(this);
+                    
+            if (req.answer) {
+                if (last_room != null) {
+                    last_room.vacate_staff_slot(this);
+                    last_room = null;
+                }
+
+                if (last_hand != null) {
+                    last_hand.vacate_slot(this);
+                    last_hand = null;
+                }
+
+                place_flag = true;
+                root_point = target_room.Position + req.at;
+                last_room = target_room;
+            }
+        }
+
+        if (target is PlayerHandScript target_hand) {
+            (bool answer, Vector2 at) req = target_hand.request_slot(this);
+                    
+            if (req.answer) {
+                if (last_room != null) {
+                    last_room.vacate_staff_slot(this);
+                    last_room = null;
+                }
+
+                if (last_hand != null) {
+                    last_hand.vacate_slot(this);
+                    last_hand = null;
+                }
+
+                // place_flag = true;
+                root_point = target_hand.Position + req.at;
+                last_hand = target_hand;
+
+            }
+        }
+    }
+
+    public void shift_root(Vector2 to, Node2D by) {
+        root_point = by.Position + to;
+    }
+
     public override void _Ready() {
         AddChild(tween);
         
@@ -54,14 +105,15 @@ public class CardScript : Node2D {
 
         GetNode<Area2D>("drop_zone").Connect("area_entered", this, nameof(drop_in));
         GetNode<Area2D>("drop_zone").Connect("area_exited", this, nameof(drop_out));
+
+        root_point = Position;
     }
 
     public override void _Input(InputEvent e) {
         if (e is InputEventMouse em) {
             if (em.IsAction("left_click") & (hover_flag | drag_flag)) {
-                if (over_room != null) {
-                    place_flag = true;
-                    root_point = over_room.Position;
+                if (over_room != null & em.GetActionStrength("left_click") < 1) {
+                    add_to(over_room);
                 } else {
                     offset = Position - em.Position;
                 }
@@ -73,6 +125,7 @@ public class CardScript : Node2D {
 
     public override void _Process(float delta) {
         Scale = base_scale;
+        ZIndex = 0;
         
         if (place_flag) {
             Scale = place_scale;
@@ -80,6 +133,7 @@ public class CardScript : Node2D {
 
         if (hover_flag) {
             Scale = hover_scale;
+            ZIndex = 10;
         }
 
         if (drag_flag) {
