@@ -10,7 +10,7 @@ public class PlayerHandScript : Node2D {
     public int hand_count;
     public int slot_count = 7;
     public List<CardScript> cards = new List<CardScript>();
-    public Vector2 hand_offset = new Vector2(128, 0);
+    public Vector2 hand_offset = new Vector2(256, 0);
     public Node2D card_space;
 
     public (bool, Vector2) request_slot(CardScript cs) {
@@ -27,6 +27,7 @@ public class PlayerHandScript : Node2D {
     public void vacate_slot(CardScript cs) {
         --hand_count;
         cards.Remove(cs);
+        
         shift_slots();
     }
 
